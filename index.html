@@ -183,6 +183,16 @@
     width:100%;height:100%;object-fit:cover;
     transition:transform .8s cubic-bezier(.2,.7,.3,1);
   }
+  .emp__img--institucional{
+    background:linear-gradient(135deg, #1a1816 0%, #2d2823 100%);
+    display:flex;align-items:center;justify-content:center;
+    padding:40px;
+  }
+  .emp__img--institucional img{
+    width:auto;max-width:85%;height:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));
+  }
   .emp:hover .emp__img img{transform:scale(1.05)}
   .emp__status{
     position:absolute;top:20px;left:20px;
@@ -236,7 +246,8 @@
   }
   .manifesto__visual{
     aspect-ratio:3/4;
-    background:url('https://cavallariincorporacoes.com.br/wp-content/uploads/2025/06/bosque-california-5.png') center/cover;
+    background:url('imagens/logo-cavallari.jpg') center/contain no-repeat;
+    background-color:var(--bg-alt);
     position:relative;
   }
   .manifesto__visual::after{
@@ -421,7 +432,7 @@
       <div class="emp__img">
         <span class="emp__status emp__status--lancamento">Entrega Abr 2029</span>
         <!-- TROQUE A FOTO AQUI: substitua o src abaixo pelo link/caminho da foto do Bosque Califórnia -->
-        <img src="https://cavallariincorporacoes.com.br/wp-content/uploads/2025/06/bosque-california-5.png" alt="Bosque Califórnia">
+        <img src="imagens/bosque-fachada.png" alt="Bosque Califórnia">
       </div>
       <div class="emp__info">
         <div>
@@ -474,6 +485,20 @@
         <div>
           <h3 class="emp__name">Jacarandá</h3>
           <p class="emp__loc">Jardim das Indústrias, Jacareí · Obra entregue</p>
+        </div>
+        <span class="emp__arrow">→</span>
+      </div>
+    </a>
+
+    <!-- 6. INSTITUCIONAL -->
+    <a href="institucional.html" class="emp">
+      <div class="emp__img emp__img--institucional">
+        <img src="imagens/logo-cavallari-infinito.png" alt="Cavallari Incorporações">
+      </div>
+      <div class="emp__info">
+        <div>
+          <h3 class="emp__name">Institucional</h3>
+          <p class="emp__loc">Conheça nossa história e trajetória</p>
         </div>
         <span class="emp__arrow">→</span>
       </div>

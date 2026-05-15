@@ -69,7 +69,12 @@
     min-height:100vh;position:relative;
     display:flex;flex-direction:column;justify-content:center;
     padding:0 8vw;
-    background:var(--sand);
+    background:url('imagens/versamar-galeria-5.png') center/cover,var(--sand);
+  }
+  .open::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(232,220,199,.92) 0%,rgba(232,220,199,.85) 100%);
+    z-index:1;
   }
   /* a palavra-âncora gigante, semi-transparente, atravessando */
   .open__ghost{
@@ -78,6 +83,7 @@
     font-size:28vw;line-height:.8;font-weight:300;
     color:var(--sea);opacity:.07;
     letter-spacing:-.04em;pointer-events:none;user-select:none;
+    z-index:1;
   }
   .open__inner{position:relative;z-index:2;max-width:680px}
   .open__kicker{
