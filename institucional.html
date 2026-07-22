@@ -109,11 +109,18 @@
   }
   .founder__img{
     aspect-ratio:4/5;
-    background-color:var(--beige);
+    background-color:#F9F7F4;
     background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
-    border:1px solid var(--line);
+    border:1px solid #E5D9CC;
+    position:relative;
+    overflow:hidden;
+  }
+  .founder__img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(255,255,255,.4) 0%,transparent 60%);
+    pointer-events:none;
   }
   .founder__txt{max-width:540px}
   .founder__txt h3{

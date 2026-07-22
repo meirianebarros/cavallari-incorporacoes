@@ -69,11 +69,11 @@
     min-height:100vh;position:relative;
     display:flex;flex-direction:column;justify-content:center;
     padding:0 8vw;
-    background:url('imagens/versamar-galeria-5.png') center/cover,var(--sand);
+    background:url('imagens/praia-massaguacu.jpg') center/cover,var(--sand);
   }
   .open::before{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(232,220,199,.92) 0%,rgba(232,220,199,.85) 100%);
+    background:linear-gradient(135deg,rgba(232,220,199,.88) 0%,rgba(232,220,199,.82) 100%);
     z-index:1;
   }
   /* a palavra-âncora gigante, semi-transparente, atravessando */
@@ -123,6 +123,11 @@
     color:var(--ink-soft);
   }
   .open__place b{color:var(--ink);font-weight:500}
+  .status-badge{
+    display:inline-block;margin:16px 0;padding:8px 16px;
+    background:var(--sea);color:var(--paper);font-size:13px;
+    font-weight:500;letter-spacing:.1em;border-radius:24px;
+  }
   .scrollcue{
     position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
     font-size:10px;letter-spacing:.3em;text-transform:uppercase;
@@ -450,6 +455,7 @@
   <div class="open__inner">
     <div class="open__kicker">Cavallari Incorporações · Litoral Norte</div>
     <h1 class="open__word">Vers<em>a</em>mar</h1>
+    <div class="status-badge">✓ 100% vendido</div>
     <p class="open__line">Um sonho à beira-mar — onde o oceano deixa de ser paisagem e passa a ser endereço.</p>
     <div class="open__foot">
       <span class="open__place">Praia de Massaguaçu · <b>Caraguatatuba — SP</b></span>
