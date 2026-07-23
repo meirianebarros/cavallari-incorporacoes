@@ -3,618 +3,769 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cavallari Incorporações — Do projeto ao concreto, excelência em cada fase</title>
-<meta name="description" content="Incorporadora em São José dos Campos. Empreendimentos residenciais que unem arquitetura, técnica e propósito.">
+<title>Galpão Comercial Caçapava — Mais que um galpão | Cavallari Incorporações</title>
+<meta name="description" content="Galpão comercial no CEIC, Caçapava-SP. Terreno de 1.000 m², 740 m² de construção, arquitetura contemporânea, fácil acesso à Dutra e segurança 24h. Um espaço para expor sua marca.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FAF7F2;          /* off-white bege bem claro */
-    --bg-alt:#F1EBE0;      /* areia */
-    --ink:#1F1B16;         /* preto morno */
-    --ink-soft:#4A433B;    /* cinza-marrom */
-    --line:#D9CFBE;        /* linha bege */
-    --accent:#876B4A;      /* madeira/bronze */
-    --accent-deep:#5C4730; /* madeira escura */
-    --gold:#A8896A;        /* dourado discreto */
-    --serif:'Cormorant Garamond', 'Times New Roman', serif;
-    --sans:'Inter', system-ui, sans-serif;
+    --paper:#F7F7F5;       /* concreto claro — fundo base */
+    --bg:#ECECE8;          /* cimento claro */
+    --bg-deep:#DBDBD5;     /* cimento médio */
+    --ink:#1E1F1D;         /* grafite quase preto */
+    --ink-soft:#5C5D58;    /* cinza-concreto */
+    --steel:#3A4651;       /* aço — acento secundário */
+    --steel-deep:#222A31;  /* aço escuro */
+    --copper:#B5662E;      /* cobre / laranja-construção — acento principal */
+    --copper-deep:#8A4A1F; /* cobre escuro */
+    --copper-pale:#D9A878; /* cobre claro */
+    --line:#C6C6BE;
+    --display:'Fraunces', Georgia, serif;
+    --sans:'Outfit', system-ui, sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:var(--sans);
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.6;
-    font-weight:300;
-    -webkit-font-smoothing:antialiased;
+    font-family:var(--sans);background:var(--bg);color:var(--ink);
+    font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
 
-  /* ---------- NAV ---------- */
-  .nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:22px 56px;
-    display:flex;align-items:center;justify-content:space-between;
-    background:rgba(250,247,242,.85);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid transparent;
-    transition:border-color .3s;
+  /* ===== PROGRESSO LATERAL ===== */
+  .rail{
+    position:fixed;top:50%;left:34px;transform:translateY(-50%);
+    z-index:90;display:flex;flex-direction:column;gap:16px;
   }
-  .nav.scrolled{border-bottom-color:var(--line)}
-  .nav__logo{
-    font-family:var(--serif);
-    font-size:26px;letter-spacing:.12em;
-    font-weight:500;text-transform:uppercase;
+  .rail__dot{
+    width:7px;height:7px;border-radius:0;
+    background:var(--line);transition:all .4s;cursor:pointer;
   }
-  .nav__logo span{color:var(--accent);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0}
-  .nav__menu{display:flex;gap:42px;list-style:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:400}
-  .nav__menu a{position:relative;transition:color .2s}
-  .nav__menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--accent);transition:width .3s}
-  .nav__menu a:hover{color:var(--accent)}
-  .nav__menu a:hover::after{width:100%}
-  .nav__cta{
-    font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-    padding:11px 22px;border:1px solid var(--ink);
-    transition:all .25s;
-  }
-  .nav__cta:hover{background:var(--ink);color:var(--bg)}
+  .rail__dot.active{background:var(--copper);transform:scale(1.6)}
+  @media(max-width:980px){.rail{display:none}}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    min-height:100vh;
-    padding:140px 56px 80px;
-    display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center;
-    position:relative;
+  /* ===== TOPO ===== */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:26px 44px;mix-blend-mode:difference;
   }
-  .hero__eyebrow{
-    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:32px;
+  .topbar a{color:#fff}
+  .topbar__brand{
+    font-family:var(--display);font-size:19px;font-weight:400;letter-spacing:.02em;
+  }
+  .topbar__brand b{font-weight:400;font-style:italic}
+  .topbar__back{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;
+  }
+
+  /* ===== 01 — ABERTURA ===== */
+  .open{
+    min-height:100vh;position:relative;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:0 8vw;background:var(--bg);
+  }
+  /* grid técnico de fundo — referência a planta/blueprint */
+  .open::before{
+    content:"";position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:80px 80px;
+    -webkit-mask-image:radial-gradient(circle at 70% 60%,#000,transparent 75%);
+    mask-image:radial-gradient(circle at 70% 60%,#000,transparent 75%);
+  }
+  .open__ghost{
+    position:absolute;left:-1vw;bottom:4vh;z-index:1;
+    font-family:var(--display);
+    font-size:21vw;line-height:.82;font-weight:300;
+    color:var(--copper);opacity:.08;
+    letter-spacing:-.035em;pointer-events:none;user-select:none;
+  }
+  .open__inner{position:relative;z-index:2;max-width:780px}
+  .open__kicker{
+    font-size:13px;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--copper);margin-bottom:38px;
+    display:flex;align-items:center;gap:16px;
+    opacity:0;transform:translateY(20px);animation:rise 1s .2s forwards;
+  }
+  .open__kicker::before{content:"";width:54px;height:2px;background:var(--copper)}
+  .open__word{
+    font-family:var(--display);
+    font-size:clamp(48px,8vw,128px);
+    font-weight:300;line-height:.98;letter-spacing:-.035em;color:var(--ink);
+    opacity:0;transform:translateY(34px);animation:rise 1.2s .4s forwards;
+  }
+  .open__word em{font-style:italic;color:var(--copper)}
+  .open__line{
+    margin-top:36px;
+    font-family:var(--display);
+    font-size:clamp(20px,2.5vw,30px);
+    font-weight:300;font-style:italic;
+    color:var(--ink-soft);max-width:580px;line-height:1.45;
+    opacity:0;transform:translateY(24px);animation:rise 1.1s .65s forwards;
+  }
+  .open__foot{
+    margin-top:58px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+    opacity:0;transform:translateY(20px);animation:rise 1.1s .9s forwards;
+  }
+  .open__place{
+    font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .open__place b{color:var(--ink);font-weight:500}
+  .open__badge{
+    padding:8px 16px;border:1px solid var(--copper);
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);
+  }
+  .scrollcue{
+    position:absolute;bottom:38px;left:50%;transform:translateX(-50%);z-index:2;
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .scrollcue::after{
+    content:"";width:1px;height:44px;
+    background:linear-gradient(var(--ink-soft),transparent);animation:drip 2s infinite;
+  }
+  @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(0);transform-origin:bottom}}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ===== 02 — HERÓI VISUAL ===== */
+  .hero2{
+    position:relative;min-height:100vh;
+    display:flex;align-items:flex-end;
+    padding:0 8vw 14vh;overflow:hidden;background:var(--steel-deep);
+  }
+  .hero2__bg{
+    position:absolute;inset:0;z-index:0;
+    /* TROQUE A FOTO AQUI: render do galpão — arquitetura contemporânea, fachada */
+    background:url('imagens/galpao-fachada-dia.jpg') center/cover;
+  }
+  .hero2__bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(34,42,49,.35) 0%,rgba(34,42,49,.05) 38%,rgba(34,42,49,.6) 72%,rgba(34,42,49,.94) 100%);
+  }
+  .hero2__inner{position:relative;z-index:2;max-width:800px;color:var(--paper)}
+  .hero2__tag{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--copper-pale);margin-bottom:28px;
     display:flex;align-items:center;gap:14px;
   }
-  .hero__eyebrow::before{content:"";width:42px;height:1px;background:var(--accent)}
-  .hero__title{
-    font-family:var(--serif);
-    font-size:clamp(48px,6.8vw,96px);
-    font-weight:400;line-height:1.02;
-    letter-spacing:-.015em;
-    color:var(--ink);
+  .hero2__tag::before{content:"";width:46px;height:2px;background:var(--copper-pale)}
+  .hero2__h{
+    font-family:var(--display);
+    font-size:clamp(34px,5vw,76px);
+    font-weight:300;line-height:1.08;letter-spacing:-.025em;
   }
-  .hero__title em{font-style:italic;color:var(--accent-deep);font-weight:300}
-  .hero__sub{
-    margin-top:32px;font-size:17px;color:var(--ink-soft);
-    max-width:480px;line-height:1.7;
+  .hero2__h em{font-style:italic;color:var(--copper-pale)}
+  .hero2__p{
+    margin-top:30px;font-size:17px;line-height:1.8;
+    color:rgba(255,255,255,.85);max-width:580px;
   }
-  .hero__actions{margin-top:48px;display:flex;gap:20px;align-items:center}
-  .btn-primary{
-    background:var(--ink);color:var(--bg);
-    padding:16px 32px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-    transition:all .25s;border:1px solid var(--ink);
-  }
-  .btn-primary:hover{background:transparent;color:var(--ink)}
-  .btn-ghost{
-    padding:16px 0;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-    border-bottom:1px solid var(--ink);transition:color .2s;
-  }
-  .btn-ghost:hover{color:var(--accent)}
 
-  .hero__visual{position:relative;height:78vh;min-height:520px}
-  .hero__img-main{
-    position:absolute;inset:0;
-    background:url('imagens/logo-cavallari-home.jpg') center/contain no-repeat;
-    background-color:var(--sand-deep);
-    box-shadow:0 30px 80px rgba(31,27,22,.18);
+  /* ===== 03 — NÚMEROS / FICHA ===== */
+  .specs{
+    background:var(--paper);padding:18vh 8vw;position:relative;overflow:hidden;
   }
-  .hero__img-accent{
-    position:absolute;bottom:-40px;left:-60px;
-    width:46%;height:42%;
-    background:url('https://cavallariincorporacoes.com.br/wp-content/uploads/2026/01/duplex-final-01-31.png') center/cover;
-    border:6px solid var(--bg);
-    box-shadow:0 20px 50px rgba(31,27,22,.15);
-  }
-  .hero__badge{
-    position:absolute;top:32px;right:-20px;
-    background:var(--bg);padding:18px 24px;
-    font-family:var(--serif);font-style:italic;font-size:18px;
-    border-left:2px solid var(--accent);
-    box-shadow:0 10px 30px rgba(31,27,22,.1);
-  }
-  .hero__badge strong{display:block;font-style:normal;font-size:32px;color:var(--accent-deep);font-weight:500;letter-spacing:-.02em}
-  .hero__badge span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-family:var(--sans)}
-
-  /* ---------- QUOTE STRIP ---------- */
-  .quote{
-    padding:120px 56px;text-align:center;
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    background:var(--bg-alt);
-    position:relative;
-  }
-  .quote::before{
-    content:"\201C";
-    font-family:var(--serif);
-    position:absolute;top:30px;left:50%;transform:translateX(-50%);
-    font-size:140px;color:var(--accent);opacity:.18;line-height:1;
-  }
-  .quote p{
-    font-family:var(--serif);
-    font-style:italic;font-weight:300;
-    font-size:clamp(22px,2.4vw,32px);
-    line-height:1.5;max-width:900px;margin:0 auto;
-    color:var(--ink);
-    position:relative;
-  }
-  .quote cite{
-    display:block;margin-top:32px;
-    font-family:var(--sans);font-style:normal;
+  .specs__tag{
     font-size:12px;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--accent);
+    color:var(--copper);margin-bottom:30px;
+  }
+  .specs__h{
+    font-family:var(--display);font-size:clamp(32px,4.4vw,60px);
+    font-weight:300;line-height:1.12;letter-spacing:-.02em;
+    max-width:760px;margin-bottom:80px;
+  }
+  .specs__h em{font-style:italic;color:var(--copper-deep)}
+  .specs__grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;background:var(--line);border:1px solid var(--line);
+  }
+  .specs__cell{
+    background:var(--paper);padding:44px 32px;
+    display:flex;flex-direction:column;gap:10px;
+    transition:background .35s;
+  }
+  .specs__cell:hover{background:var(--bg)}
+  .specs__n{
+    font-family:var(--display);font-size:clamp(38px,3.6vw,54px);
+    font-weight:400;color:var(--copper-deep);line-height:1;letter-spacing:-.02em;
+  }
+  .specs__n small{font-size:.4em;color:var(--ink-soft)}
+  .specs__l{
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);line-height:1.5;
   }
 
-  /* ---------- EMPREENDIMENTOS ---------- */
-  .section{padding:140px 56px}
-  .section__header{
-    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;
-    margin-bottom:80px;padding-bottom:32px;border-bottom:1px solid var(--line);
+  /* ===== 04 — CONCEITO ===== */
+  .concept{
+    background:var(--steel-deep);color:var(--paper);
+    padding:18vh 8vw;position:relative;overflow:hidden;
   }
-  .section__eyebrow{
-    font-size:12px;letter-spacing:.32em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:20px;
+  .concept__num{
+    position:absolute;top:8vh;right:6vw;
+    font-family:var(--display);font-size:13vw;font-weight:300;
+    color:rgba(255,255,255,.05);line-height:1;
   }
-  .section__title{
-    font-family:var(--serif);font-size:clamp(40px,5vw,68px);
-    font-weight:400;line-height:1.05;letter-spacing:-.015em;
+  .concept__tag{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--copper-pale);margin-bottom:48px;
   }
-  .section__title em{font-style:italic;color:var(--accent-deep)}
-  .section__desc{font-size:16px;color:var(--ink-soft);max-width:440px;line-height:1.75}
+  .concept__big{
+    font-family:var(--display);font-size:clamp(30px,4.4vw,60px);
+    font-weight:300;line-height:1.25;letter-spacing:-.018em;max-width:1000px;
+  }
+  .concept__big .hl{font-style:italic;color:#fff;position:relative}
+  .concept__big .hl::after{
+    content:"";position:absolute;left:0;right:0;bottom:.08em;
+    height:2px;background:var(--copper);
+  }
+  .concept__cols{
+    margin-top:90px;display:grid;grid-template-columns:repeat(3,1fr);
+    gap:50px;max-width:1000px;
+  }
+  .concept__col h4{
+    font-family:var(--display);font-size:22px;font-weight:400;
+    margin-bottom:14px;color:#fff;
+  }
+  .concept__col p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.62)}
 
-  .empreendimentos{display:grid;grid-template-columns:repeat(2,1fr);gap:60px 50px}
-  .emp{
-    position:relative;cursor:pointer;
-    transition:transform .5s cubic-bezier(.2,.7,.3,1);
+  /* ===== 05 — VANTAGENS DO CEIC ===== */
+  .ceic{background:var(--bg-deep);padding:18vh 8vw}
+  .ceic__head{margin-bottom:64px;max-width:640px}
+  .ceic__tag{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--copper);margin-bottom:22px;
   }
-  .emp:hover{transform:translateY(-8px)}
-  .emp__img{
-    aspect-ratio:4/5;overflow:hidden;
-    background:var(--bg-alt);position:relative;
+  .ceic__h{
+    font-family:var(--display);font-size:clamp(32px,4.4vw,58px);
+    font-weight:300;line-height:1.1;letter-spacing:-.02em;
   }
-  .emp__img img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .8s cubic-bezier(.2,.7,.3,1);
+  .ceic__h em{font-style:italic;color:var(--copper-deep)}
+  .ceic__sub{
+    margin-top:22px;font-size:16px;color:var(--ink-soft);line-height:1.75;max-width:540px;
   }
-  .emp__img--institucional{
-    background:linear-gradient(135deg, #1a1816 0%, #2d2823 100%);
-    display:flex;align-items:center;justify-content:center;
-    padding:40px;
+  .ceic__list{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:1px;background:var(--line);border:1px solid var(--line);
   }
-  .emp__img--institucional img{
-    width:auto;max-width:85%;height:auto;
-    object-fit:contain;
-    filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));
+  .ceic__item{
+    background:var(--paper);padding:38px 34px;
+    display:flex;gap:22px;align-items:flex-start;
+    transition:background .35s;
   }
-  .emp:hover .emp__img img{transform:scale(1.05)}
-  .emp__status{
-    position:absolute;top:20px;left:20px;
-    background:rgba(250,247,242,.95);backdrop-filter:blur(4px);
-    padding:7px 14px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;
-    font-weight:500;
+  .ceic__item:hover{background:var(--bg)}
+  .ceic__item-n{
+    font-family:var(--display);font-size:17px;font-style:italic;
+    color:var(--copper);flex-shrink:0;
   }
-  .emp__status--lancamento{color:var(--accent-deep)}
-  .emp__status--obras{color:#7A5A2E}
-  .emp__status--entregue{color:#3D5C3D}
-  .emp__status--em-breve{color:var(--ink-soft)}
+  .ceic__item-t{
+    font-family:var(--display);font-size:22px;font-weight:400;
+    margin-bottom:6px;line-height:1.2;
+  }
+  .ceic__item-d{font-size:14px;color:var(--ink-soft);line-height:1.7}
 
-  /* placeholder pro empreendimento sem foto ainda */
-  .emp__img--placeholder{
-    background:linear-gradient(135deg,var(--bg-alt) 0%,#E8DFCE 100%);
-    display:flex;align-items:center;justify-content:center;
+  /* ===== 06 — FAIXA ===== */
+  .band{
+    position:relative;padding:24vh 8vw;text-align:center;
+    background:var(--paper);overflow:hidden;
+  }
+  .band::before{
+    content:"";position:absolute;inset:0;opacity:.6;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:80px 80px;
+    -webkit-mask-image:radial-gradient(circle at 50% 50%,#000,transparent 70%);
+    mask-image:radial-gradient(circle at 50% 50%,#000,transparent 70%);
+  }
+  .band__q{
     position:relative;
+    font-family:var(--display);font-size:clamp(26px,3.6vw,48px);
+    font-weight:300;line-height:1.4;letter-spacing:-.015em;
+    color:var(--ink);max-width:920px;margin:0 auto;
   }
-  .emp__img--placeholder::before{
-    content:"";position:absolute;inset:24px;
-    border:1px dashed var(--line);
+  .band__q em{font-style:italic;color:var(--copper-deep)}
+  .band__sig{
+    position:relative;margin-top:36px;
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);
   }
-  .emp__placeholder{
-    display:flex;flex-direction:column;align-items:center;gap:18px;
-    color:var(--accent);text-align:center;
+
+  /* ===== 07 — GALERIA EM TIRA ===== */
+  .reel{background:var(--ink);padding:16vh 0 16vh 8vw;overflow:hidden}
+  .reel__head{margin-bottom:60px;padding-right:8vw}
+  .reel__tag{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--copper-pale);margin-bottom:22px;
   }
-  .emp__placeholder-text{
-    font-family:var(--serif);font-style:italic;
-    font-size:18px;line-height:1.4;color:var(--ink-soft);
+  .reel__h{
+    font-family:var(--display);font-size:clamp(32px,4.4vw,58px);
+    font-weight:300;color:var(--paper);line-height:1.1;
+    letter-spacing:-.02em;max-width:600px;
   }
-  .emp__info{padding:24px 4px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
-  .emp__name{font-family:var(--serif);font-size:32px;font-weight:500;line-height:1.1;letter-spacing:-.01em}
-  .emp__loc{font-size:13px;color:var(--ink-soft);margin-top:6px;letter-spacing:.05em}
-  .emp__arrow{
-    flex-shrink:0;width:44px;height:44px;
-    border:1px solid var(--ink);border-radius:50%;
+  .reel__h em{font-style:italic;color:var(--copper-pale)}
+  .reel__track{
+    display:flex;gap:24px;overflow-x:auto;padding-bottom:24px;
+    scroll-snap-type:x mandatory;
+  }
+  .reel__track::-webkit-scrollbar{height:3px}
+  .reel__track::-webkit-scrollbar-track{background:rgba(255,255,255,.08)}
+  .reel__track::-webkit-scrollbar-thumb{background:var(--copper-pale)}
+  .reel__item{
+    flex:0 0 auto;scroll-snap-align:start;
+    width:clamp(280px,38vw,520px);
+    background:var(--bg-deep);overflow:hidden;
+  }
+  .reel__item img{
+    width:100%;height:clamp(340px,52vh,560px);object-fit:cover;
+    transition:transform .9s cubic-bezier(.2,.7,.3,1);
+  }
+  .reel__item:hover img{transform:scale(1.05)}
+  .reel__cap{
+    padding:18px 22px;display:flex;justify-content:space-between;
+    font-size:12px;letter-spacing:.06em;color:var(--ink-soft);background:var(--paper);
+  }
+  .reel__hint{
+    margin-top:24px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+    color:rgba(255,255,255,.4);display:flex;align-items:center;gap:12px;
+  }
+  .reel__hint::before{content:"";width:40px;height:1px;background:rgba(255,255,255,.3)}
+
+  /* ===== VÍDEO ===== */
+  .film{padding:0 8vw 16vh;background:var(--ink)}
+  .film__head{margin-bottom:50px}
+  .film__tag{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--copper-pale);margin-bottom:22px;
+  }
+  .film__h{
+    font-family:var(--display);font-size:clamp(32px,4.4vw,58px);
+    font-weight:300;color:var(--paper);line-height:1.1;letter-spacing:-.02em;
+  }
+  .film__h em{font-style:italic;color:var(--copper-pale)}
+  .film__frame{
+    width:100%;max-width:1100px;aspect-ratio:16/9;
+    position:relative;overflow:hidden;
+    box-shadow:0 50px 100px rgba(0,0,0,.5);
+  }
+  .film__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* ===== 08 — DESFECHO / CONTATO ===== */
+  .close{background:var(--bg);padding:18vh 8vw;position:relative;overflow:hidden}
+  .close__ghost{
+    position:absolute;right:-3vw;top:8vh;
+    font-family:var(--display);font-size:18vw;font-weight:300;
+    color:var(--copper);opacity:.08;line-height:.8;
+    pointer-events:none;user-select:none;
+  }
+  .close__grid{
+    position:relative;display:grid;grid-template-columns:1.15fr .85fr;
+    gap:8vw;align-items:center;max-width:1200px;
+  }
+  .close__tag{
+    font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--copper);margin-bottom:34px;
+  }
+  .close__h{
+    font-family:var(--display);font-size:clamp(38px,5vw,72px);
+    font-weight:300;line-height:1.08;letter-spacing:-.025em;margin-bottom:30px;
+  }
+  .close__h em{font-style:italic;color:var(--copper-deep)}
+  .close__p{
+    font-size:16px;line-height:1.85;color:var(--ink-soft);
+    max-width:450px;margin-bottom:44px;
+  }
+  .close__p b{color:var(--ink);font-weight:500}
+  .close__actions{display:flex;flex-direction:column;gap:16px;max-width:340px}
+  .btn{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 28px;font-size:13px;letter-spacing:.1em;
+    text-transform:uppercase;transition:all .25s;
+  }
+  .btn--main{background:var(--copper);color:#fff;border:1px solid var(--copper)}
+  .btn--main:hover{background:var(--copper-deep);border-color:var(--copper-deep)}
+  .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn--ghost:hover{border-color:var(--ink)}
+  .btn span:last-child{font-size:16px}
+  .close__card{background:var(--paper);border:1px solid var(--line);padding:44px}
+  .close__card h4{
+    font-family:var(--display);font-size:24px;font-weight:400;margin-bottom:30px;
+  }
+  .infrow{
+    padding:18px 0;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:5px;
+  }
+  .infrow:first-of-type{border-top:0;padding-top:0}
+  .infrow span{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);
+  }
+  .infrow p,.infrow a{font-size:15px;color:var(--ink)}
+  .infrow b{color:var(--copper-deep);font-weight:500}
+
+  /* ===== RODAPÉ ===== */
+  .foot{
+    background:var(--steel-deep);color:rgba(255,255,255,.7);
+    padding:70px 8vw 44px;text-align:center;
+  }
+  .foot__brand{
+    font-family:var(--display);font-size:24px;color:#fff;margin-bottom:8px;
+  }
+  .foot__brand b{font-style:italic;font-weight:400}
+  .foot__links{
+    display:flex;gap:30px;justify-content:center;margin:26px 0;flex-wrap:wrap;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .foot__links a:hover{color:#fff}
+  .foot__fine{font-size:12px;color:rgba(255,255,255,.4);margin-top:22px;line-height:1.7}
+
+  /* ===== WHATSAPP ===== */
+  .wa{
+    position:fixed;right:26px;bottom:26px;z-index:120;
+    width:56px;height:56px;border-radius:50%;background:var(--copper);
     display:flex;align-items:center;justify-content:center;
-    transition:all .25s;font-size:18px;
+    box-shadow:0 12px 30px rgba(181,102,46,.4);transition:transform .25s;
   }
-  .emp:hover .emp__arrow{background:var(--ink);color:var(--bg);transform:rotate(-45deg)}
+  .wa:hover{transform:scale(1.09)}
+  .wa svg{width:28px;height:28px;fill:#fff}
 
-  /* offset visual — só a coluna da direita desce, e nunca um card sozinho na última linha */
-  .empreendimentos .emp:nth-child(even){margin-top:60px}
-  .empreendimentos .emp:last-child:nth-child(odd){margin-top:0}
+  /* ===== REVEAL ===== */
+  .rv{opacity:0;transform:translateY(40px);transition:opacity 1s,transform 1s}
+  .rv.in{opacity:1;transform:none}
 
-  /* ---------- MANIFESTO / SOBRE ---------- */
-  .manifesto{
-    background:var(--ink);color:var(--bg);
-    padding:160px 56px;
-    display:grid;grid-template-columns:1fr 1.2fr;gap:100px;align-items:center;
+  /* ===== RESPONSIVO ===== */
+  @media(max-width:980px){
+    .topbar{padding:20px 24px}
+    .open{padding:0 7vw}
+    .open__ghost{font-size:34vw;bottom:3vh}
+    .hero2{padding:0 7vw 11vh}
+    .specs{padding:13vh 7vw}
+    .specs__grid{grid-template-columns:1fr 1fr}
+    .concept{padding:13vh 7vw}
+    .concept__cols{grid-template-columns:1fr;gap:36px;margin-top:60px}
+    .concept__num{font-size:24vw;top:5vh}
+    .ceic{padding:13vh 7vw}
+    .ceic__list{grid-template-columns:1fr}
+    .band{padding:16vh 7vw}
+    .reel{padding:12vh 0 12vh 7vw}
+    .close{padding:13vh 7vw}
+    .close__grid{grid-template-columns:1fr;gap:56px}
+    .close__ghost{font-size:36vw}
+    .close__actions{max-width:none}
   }
-  .manifesto__visual{
-    aspect-ratio:3/4;
-    background:url('imagens/logo-cavallari.jpg') center/contain no-repeat;
-    background-color:var(--bg-alt);
-    position:relative;
+  @media(max-width:560px){
+    .open__foot{gap:16px}
+    .specs__grid{grid-template-columns:1fr}
+    .concept__big{font-size:clamp(24px,6vw,34px)}
+    .close__card{padding:30px}
+    .reel__item{width:82vw}
   }
-  .manifesto__visual::after{
-    content:"";position:absolute;inset:0;
-    border:1px solid rgba(250,247,242,.15);
-    transform:translate(20px,20px);
-  }
-  .manifesto__eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:32px}
-  .manifesto__title{
-    font-family:var(--serif);font-size:clamp(36px,4.5vw,58px);
-    font-weight:300;line-height:1.15;letter-spacing:-.01em;
-    margin-bottom:40px;
-  }
-  .manifesto__title em{color:var(--gold);font-weight:400}
-  .manifesto__text{font-size:16px;line-height:1.85;color:rgba(250,247,242,.78);max-width:560px;margin-bottom:24px}
-  .manifesto__stats{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    gap:40px;margin-top:64px;padding-top:48px;
-    border-top:1px solid rgba(250,247,242,.12);
-  }
-  .stat__num{font-family:var(--serif);font-size:54px;color:var(--gold);font-weight:400;line-height:1;letter-spacing:-.02em}
-  .stat__label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,247,242,.6);margin-top:12px}
-
-  /* ---------- PROCESSO ---------- */
-  .processo{padding:140px 56px;background:var(--bg-alt)}
-  .processo__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:80px}
-  .step{position:relative;padding-top:32px;border-top:1px solid var(--line)}
-  .step__num{
-    font-family:var(--serif);font-size:14px;color:var(--accent);
-    letter-spacing:.2em;margin-bottom:24px;
-  }
-  .step__title{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:16px;line-height:1.2}
-  .step__desc{font-size:14px;color:var(--ink-soft);line-height:1.7}
-
-  /* ---------- CTA ---------- */
-  .cta{
-    padding:140px 56px;text-align:center;
-    background:var(--bg);position:relative;overflow:hidden;
-  }
-  .cta__title{
-    font-family:var(--serif);font-size:clamp(40px,5.5vw,76px);
-    font-weight:300;line-height:1.1;letter-spacing:-.015em;
-    max-width:900px;margin:0 auto 40px;
-  }
-  .cta__title em{font-style:italic;color:var(--accent-deep)}
-  .cta__desc{font-size:17px;color:var(--ink-soft);max-width:520px;margin:0 auto 48px;line-height:1.7}
-
-  /* ---------- FOOTER ---------- */
-  .footer{
-    background:var(--ink);color:var(--bg);
-    padding:100px 56px 40px;
-  }
-  .footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;padding-bottom:64px;border-bottom:1px solid rgba(250,247,242,.12)}
-  .footer__logo{
-    font-family:var(--serif);font-size:28px;letter-spacing:.12em;
-    text-transform:uppercase;margin-bottom:24px;
-  }
-  .footer__logo span{color:var(--gold);font-style:italic;text-transform:none;letter-spacing:0;font-weight:400}
-  .footer__tag{font-family:var(--serif);font-style:italic;font-size:18px;color:rgba(250,247,242,.65);line-height:1.5;max-width:300px}
-  .footer__col h4{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;font-weight:500}
-  .footer__col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
-  .footer__col a{font-size:14px;color:rgba(250,247,242,.78);transition:color .2s}
-  .footer__col a:hover{color:var(--gold)}
-  .footer__col p{font-size:14px;color:rgba(250,247,242,.78);line-height:1.7}
-  .footer__bottom{display:flex;justify-content:space-between;padding-top:32px;font-size:12px;color:rgba(250,247,242,.5);letter-spacing:.05em}
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 1024px){
-    .hero{grid-template-columns:1fr;padding:120px 32px 60px}
-    .hero__visual{height:60vh}
-    .hero__img-accent{display:none}
-    .section,.cta,.processo,.manifesto{padding:100px 32px}
-    .manifesto{grid-template-columns:1fr;gap:60px}
-    .section__header{grid-template-columns:1fr;gap:32px}
-    .empreendimentos{grid-template-columns:1fr;gap:60px}
-    .empreendimentos .emp:nth-child(even){margin-top:0}
-    .processo__grid{grid-template-columns:repeat(2,1fr)}
-    .footer__grid{grid-template-columns:1fr 1fr;gap:40px}
-    .nav{padding:18px 24px}
-    .nav__menu{display:none}
-  }
-  @media (max-width: 600px){
-    .processo__grid{grid-template-columns:1fr}
-    .footer__grid{grid-template-columns:1fr}
-    .footer__bottom{flex-direction:column;gap:8px}
-    .manifesto__stats{grid-template-columns:1fr;gap:24px}
-    .hero__actions{flex-direction:column;align-items:stretch}
-    .btn-primary,.btn-ghost{text-align:center}
-  }
-
-  /* ---------- ANIMAÇÕES ENTRADA ---------- */
-  .fade-up{opacity:0;transform:translateY(30px);transition:opacity 1s, transform 1s}
-  .fade-up.visible{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <a href="#" class="nav__logo">Cavallari<span> incorporações</span></a>
-  <ul class="nav__menu">
-    <li><a href="#empreendimentos">Empreendimentos</a></li>
-    <li><a href="institucional.html">Institucional</a></li>
-    <li><a href="#processo">Processo</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
-  <a href="#contato" class="nav__cta">Fale conosco</a>
+<!-- PROGRESSO LATERAL -->
+<nav class="rail" aria-hidden="true">
+  <span class="rail__dot" data-i="0"></span>
+  <span class="rail__dot" data-i="1"></span>
+  <span class="rail__dot" data-i="2"></span>
+  <span class="rail__dot" data-i="3"></span>
+  <span class="rail__dot" data-i="4"></span>
+  <span class="rail__dot" data-i="5"></span>
+  <span class="rail__dot" data-i="6"></span>
 </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero__copy">
-    <div class="hero__eyebrow">Incorporadora · São José dos Campos</div>
-    <h1 class="hero__title">
-      Do projeto<br>
-      ao concreto,<br>
-      <em>excelência</em> em<br>
-      cada fase.
-    </h1>
-    <p class="hero__sub">
-      Empreendimentos residenciais que unem arquitetura, técnica e propósito.
-      Construímos lugares onde a forma serve à vida — e o detalhe, ao tempo.
-    </p>
-    <div class="hero__actions">
-      <a href="#empreendimentos" class="btn-primary">Ver empreendimentos</a>
-      <a href="#sobre" class="btn-ghost">Conheça a Cavallari →</a>
-    </div>
-  </div>
-  <div class="hero__visual">
-    <div class="hero__img-main" role="img" aria-label="Empreendimento residencial Cavallari"></div>
-    <div class="hero__img-accent" role="img" aria-label="Detalhe arquitetônico"></div>
-    <div class="hero__badge">
-      <strong>15+</strong>
-      <span>anos de história</span>
-    </div>
-  </div>
+<!-- TOPO -->
+<header class="topbar">
+  <a href="index.html" class="topbar__brand">Cavallari <b>Incorporações</b></a>
+  <a href="index.html" class="topbar__back">← Empreendimentos</a>
 </header>
 
-<!-- QUOTE -->
-<section class="quote">
-  <p>
-    Construir é transformar cálculo em forma, matéria em propósito e espaço em significado.
-    Cada linha traçada é um diálogo entre razão e sonho, onde a técnica ergue o que a imaginação idealizou.
-  </p>
-  <cite>— filosofia Cavallari</cite>
+<!-- ===== 01 — ABERTURA ===== -->
+<section class="open" data-chapter="0">
+  <div class="open__ghost">Galpão</div>
+  <div class="open__inner">
+    <div class="open__kicker">Cavallari Incorporações · Comercial / Logístico</div>
+    <h1 class="open__word">Galpão <em>Caçapava</em></h1>
+    <p class="open__line">Mais que um galpão — um espaço para expor a sua marca, onde a beleza e o espaço útil se completam.</p>
+    <div class="open__foot">
+      <span class="open__place">CEIC · <b>Caçapava — SP</b></span>
+      <span class="open__badge">Entrega Jun 2027</span>
+    </div>
+  </div>
+  <div class="scrollcue">Role</div>
 </section>
 
-<!-- EMPREENDIMENTOS -->
-<section class="section" id="empreendimentos">
-  <div class="section__header">
-    <div>
-      <div class="section__eyebrow">Portfólio</div>
-      <h2 class="section__title">Empreendimentos<br><em>em destaque</em></h2>
-    </div>
-    <p class="section__desc">
-      Cada projeto reflete um cuidado particular com o entorno, a arquitetura e a vida que ali vai acontecer.
-      Conheça os empreendimentos disponíveis e em desenvolvimento.
+<!-- ===== 02 — HERÓI VISUAL ===== -->
+<section class="hero2" data-chapter="1">
+  <div class="hero2__bg" role="img" aria-label="Galpão comercial de arquitetura contemporânea em Caçapava"></div>
+  <div class="hero2__inner">
+    <div class="hero2__tag">O empreendimento</div>
+    <h2 class="hero2__h">
+      Arquitetura <em>contemporânea</em><br>
+      para quem leva a marca a sério.
+    </h2>
+    <p class="hero2__p">
+      Um galpão pensado como cartão de visitas. Linhas elegantes,
+      presença na fachada e a funcionalidade que a operação exige —
+      porque o lugar onde sua empresa trabalha também comunica
+      quem ela é.
     </p>
   </div>
+</section>
 
-  <div class="empreendimentos">
-
-    <!-- 1. VERSAMAR -->
-    <a href="versamar.html" class="emp">
-      <div class="emp__img">
-        <span class="emp__status emp__status--obras">Entrega Jul 2026</span>
-        <!-- TROQUE A FOTO AQUI: substitua o src abaixo pelo link/caminho da foto do Versamar -->
-        <img src="https://cavallariincorporacoes.com.br/wp-content/uploads/2025/06/2.png" alt="Versamar">
-      </div>
-      <div class="emp__info">
-        <div>
-          <h3 class="emp__name">Versamar</h3>
-          <p class="emp__loc">Praia de Massaguaçu, Caraguatatuba · Últimas 2 unidades</p>
-        </div>
-        <span class="emp__arrow">→</span>
-      </div>
-    </a>
-
-    <!-- 2. BOSQUE CALIFÓRNIA -->
-    <a href="bosque-california.html" class="emp">
-      <div class="emp__img">
-        <span class="emp__status emp__status--lancamento">Entrega Abr 2029</span>
-        <!-- TROQUE A FOTO AQUI: substitua o src abaixo pelo link/caminho da foto do Bosque Califórnia -->
-        <img src="imagens/bosque-fachada.png" alt="Bosque Califórnia">
-      </div>
-      <div class="emp__info">
-        <div>
-          <h3 class="emp__name">Bosque Califórnia</h3>
-          <p class="emp__loc">Jacareí · Residencial com bosque preservado</p>
-        </div>
-        <span class="emp__arrow">→</span>
-      </div>
-    </a>
-
-    <!-- 3. VISTA LINDA ARAÇÁ -->
-    <a href="vista-linda.html" class="emp">
-      <div class="emp__img">
-        <span class="emp__status emp__status--lancamento">Entrega Abr 2029</span>
-        <!-- TROQUE A FOTO AQUI: substitua o src abaixo pelo link/caminho da foto do Vista Linda Araçá -->
-        <img src="https://cavallariincorporacoes.com.br/wp-content/uploads/2026/01/persp-ps.png" alt="Vista Linda Araçá">
-      </div>
-      <div class="emp__info">
-        <div>
-          <h3 class="emp__name">Vista Linda Araçá</h3>
-          <p class="emp__loc">São José dos Campos · Jardim de Mata Atlântica na cobertura</p>
-        </div>
-        <span class="emp__arrow">→</span>
-      </div>
-    </a>
-
-    <!-- 4. GALPÃO COMERCIAL - CAÇAPAVA -->
-    <a href="galpao-cacapava.html" class="emp">
-      <div class="emp__img">
-        <span class="emp__status emp__status--em-breve">Entrega Jun 2027</span>
-        <img src="imagens/galpao-fachada-dia.jpg" alt="Galpão Comercial Caçapava">
-      </div>
-      <div class="emp__info">
-        <div>
-          <h3 class="emp__name">Galpão Comercial</h3>
-          <p class="emp__loc">Caçapava · Comercial / Logístico</p>
-        </div>
-        <span class="emp__arrow">→</span>
-      </div>
-    </a>
-
-    <!-- 5. JACARANDÁ -->
-    <a href="jacaranda.html" class="emp">
-      <div class="emp__img">
-        <span class="emp__status emp__status--entregue">Entregue Mai 2022</span>
-        <!-- TROQUE A FOTO AQUI: substitua o src abaixo pelo link/caminho da foto do Jacarandá -->
-        <img src="https://cavallariincorporacoes.com.br/wp-content/uploads/2025/06/4.png" alt="Jacarandá">
-      </div>
-      <div class="emp__info">
-        <div>
-          <h3 class="emp__name">Jacarandá</h3>
-          <p class="emp__loc">Jardim das Indústrias, Jacareí · Obra entregue</p>
-        </div>
-        <span class="emp__arrow">→</span>
-      </div>
-    </a>
-
-  </div>
-
-<!-- PROCESSO -->
-<section class="processo" id="processo">
-  <div class="section__header">
-    <div>
-      <div class="section__eyebrow">Como trabalhamos</div>
-      <h2 class="section__title">Do projeto<br><em>ao concreto.</em></h2>
+<!-- ===== 03 — NÚMEROS / FICHA ===== -->
+<section class="specs rv" data-chapter="2">
+  <div class="specs__tag">A ficha técnica</div>
+  <h2 class="specs__h">Dimensões pensadas para <em>operar e impressionar.</em></h2>
+  <div class="specs__grid">
+    <div class="specs__cell">
+      <div class="specs__n">1.000<small> m²</small></div>
+      <div class="specs__l">Área total<br>do terreno</div>
     </div>
-    <p class="section__desc">
-      Um processo metódico, transparente e acompanhado de perto.
-      Quatro etapas que garantem que cada empreendimento nasça com a mesma qualidade
-      do primeiro estudo ao dia da entrega.
+    <div class="specs__cell">
+      <div class="specs__n">740<small> m²</small></div>
+      <div class="specs__l">Área<br>construída</div>
+    </div>
+    <div class="specs__cell">
+      <div class="specs__n">24<small>h</small></div>
+      <div class="specs__l">Segurança<br>do condomínio</div>
+    </div>
+    <div class="specs__cell">
+      <div class="specs__n">Jun<small> 27</small></div>
+      <div class="specs__l">Previsão<br>de entrega</div>
+    </div>
+  </div>
+  <!-- MARCADOR: quando tiver os dados oficiais, adicione pé-direito, número de docas,
+       vagas, escritório/mezanino e demais especificações técnicas. -->
+</section>
+
+<!-- ===== 04 — CONCEITO ===== -->
+<section class="concept rv" data-chapter="3">
+  <div class="concept__num">04</div>
+  <div class="concept__tag">O conceito</div>
+  <p class="concept__big">
+    A maioria dos galpões resolve só o <span class="hl">espaço útil</span>.
+    Este resolve também a imagem — arquitetura que valoriza a marca
+    de quem ocupa, sem abrir mão de um metro de operação.
+  </p>
+  <div class="concept__cols">
+    <div class="concept__col">
+      <h4>Beleza e função juntas</h4>
+      <p>Arquitetura elegante e contemporânea, onde o desenho da fachada trabalha a favor da sua marca — e o interior, a favor da sua operação.</p>
+    </div>
+    <div class="concept__col">
+      <h4>Espaço para expor</h4>
+      <p>Mais que estocar ou produzir: um endereço que recebe clientes, fornecedores e parceiros com a presença que o seu negócio merece.</p>
+    </div>
+    <div class="concept__col">
+      <h4>Padrão Cavallari</h4>
+      <p>A mesma atenção ao detalhe e ao cumprimento de prazo que a Cavallari aplica em seus empreendimentos residenciais, agora no comercial.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 — VANTAGENS DO CEIC ===== -->
+<section class="ceic rv" data-chapter="4">
+  <div class="ceic__head">
+    <div class="ceic__tag">A localização</div>
+    <h2 class="ceic__h">Dentro do <em>CEIC</em>, no eixo da Dutra.</h2>
+    <p class="ceic__sub">
+      O galpão fica no CEIC — Centro Empresarial e Industrial de
+      Caçapava, um condomínio de galpões com infraestrutura pensada
+      para a operação de empresas.
     </p>
   </div>
-
-  <div class="processo__grid">
-    <div class="step">
-      <div class="step__num">01 — Concepção</div>
-      <h3 class="step__title">Estudo do terreno e do entorno</h3>
-      <p class="step__desc">
-        Análise do bairro, do perfil de quem vai morar e das vocações do local.
-        Aqui nasce a alma do projeto.
-      </p>
+  <div class="ceic__list">
+    <div class="ceic__item">
+      <span class="ceic__item-n">— 01</span>
+      <div>
+        <div class="ceic__item-t">Fácil acesso à Dutra</div>
+        <p class="ceic__item-d">Conexão rápida com a Via Dutra — o principal eixo logístico entre São Paulo e Rio de Janeiro.</p>
+      </div>
     </div>
-    <div class="step">
-      <div class="step__num">02 — Projeto</div>
-      <h3 class="step__title">Arquitetura e engenharia</h3>
-      <p class="step__desc">
-        Desenvolvimento técnico em parceria com escritórios de arquitetura selecionados.
-        Cada decisão é avaliada em forma, função e durabilidade.
-      </p>
+    <div class="ceic__item">
+      <span class="ceic__item-n">— 02</span>
+      <div>
+        <div class="ceic__item-t">Segurança 24 horas</div>
+        <p class="ceic__item-d">Condomínio fechado com monitoramento e controle de acesso o tempo todo, todos os dias.</p>
+      </div>
     </div>
-    <div class="step">
-      <div class="step__num">03 — Obra</div>
-      <h3 class="step__title">Execução com equipe própria</h3>
-      <p class="step__desc">
-        Acompanhamento direto da Cavallari em cada fase, com transparência de prazos
-        e controle rigoroso de qualidade.
-      </p>
+    <div class="ceic__item">
+      <span class="ceic__item-n">— 03</span>
+      <div>
+        <div class="ceic__item-t">Ambiente empresarial</div>
+        <p class="ceic__item-d">Vizinhança de empresas e indústrias — um endereço que posiciona o seu negócio no lugar certo.</p>
+      </div>
     </div>
-    <div class="step">
-      <div class="step__num">04 — Entrega</div>
-      <h3 class="step__title">Pós-obra e relacionamento</h3>
-      <p class="step__desc">
-        A relação não termina com a chave. Suporte contínuo aos moradores e
-        cuidado com a vida útil do empreendimento.
-      </p>
+    <div class="ceic__item">
+      <span class="ceic__item-n">— 04</span>
+      <div>
+        <div class="ceic__item-t">Infraestrutura de condomínio</div>
+        <p class="ceic__item-d">Estrutura compartilhada e bem mantida, com a previsibilidade que uma operação séria precisa.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="contato">
-  <div class="section__eyebrow" style="margin-bottom:24px">Vamos conversar</div>
-  <h2 class="cta__title">
-    Encontre o <em>seu próximo</em><br>
-    endereço com a Cavallari.
-  </h2>
-  <p class="cta__desc">
-    Agende uma visita a um dos nossos empreendimentos ou converse diretamente
-    com nossa equipe sobre disponibilidade, plantas e condições.
+<!-- ===== 06 — FAIXA ===== -->
+<section class="band" data-chapter="5">
+  <p class="band__q">
+    O lugar onde a sua empresa trabalha <em>fala por ela</em>
+    antes de qualquer apresentação.
   </p>
-  <div class="hero__actions" style="justify-content:center;display:inline-flex">
-    <a href="https://api.whatsapp.com/send?phone=5512997050375" class="btn-primary">Falar no WhatsApp</a>
-    <a href="tel:+551233224780" class="btn-ghost">(12) 3322-4780</a>
+  <div class="band__sig">Galpão Caçapava · por Cavallari Incorporações</div>
+</section>
+
+<!-- ===== 07 — GALERIA EM TIRA ===== -->
+<section class="reel" data-chapter="5">
+  <div class="reel__head">
+    <div class="reel__tag">Galeria</div>
+    <h2 class="reel__h">O projeto <em>em imagens.</em></h2>
+  </div>
+  <div class="reel__track">
+    <!-- TROQUE AS FOTOS AQUI: renders do galpão — fachada, interior, área externa, implantação no CEIC -->
+    <div class="reel__item">
+      <img src="imagens/galpao-fachada-noite.jpg" alt="Galpão Caçapava — fachada">
+      <div class="reel__cap"><span>Fachada · noite</span><span>01</span></div>
+    </div>
+    <div class="reel__item">
+      <img src="imagens/galpao-coworking.jpg" alt="Galpão Caçapava — interior">
+      <div class="reel__cap"><span>Coworking</span><span>02</span></div>
+    </div>
+    <div class="reel__item">
+      <img src="imagens/galpao-escritorio.jpg" alt="Galpão Caçapava — área de operação">
+      <div class="reel__cap"><span>Escritório · vista cidade</span><span>03</span></div>
+    </div>
+    <div class="reel__item">
+      <img src="imagens/galpao-recepcao.jpg" alt="Galpão Caçapava — arquitetura">
+      <div class="reel__cap"><span>Recepção</span><span>04</span></div>
+    </div>
+    <div class="reel__item">
+      <img src="imagens/galpao-fachada-noite.jpg" alt="Galpão Caçapava — implantação">
+      <div class="reel__cap"><span>Fachada · vista frontal</span><span>05</span></div>
+    </div>
+  </div>
+  <div class="reel__hint">Arraste para o lado</div>
+</section>
+
+<!-- ===== VÍDEO ===== -->
+<section class="film" data-chapter="5">
+  <div class="film__head">
+    <div class="film__tag">O empreendimento em movimento</div>
+    <h2 class="film__h">Veja o galpão <em>em vídeo.</em></h2>
+  </div>
+  <div class="film__frame">
+    <iframe
+      src="https://www.youtube.com/embed/HBLKQVEYfSw"
+      title="Galpão Comercial Caçapava — Cavallari Incorporações"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer__grid">
-    <div>
-      <div class="footer__logo">Cavallari<span> incorporações</span></div>
-      <p class="footer__tag">Do projeto ao concreto, excelência em cada fase.</p>
-    </div>
-    <div class="footer__col">
-      <h4>Navegação</h4>
-      <ul>
-        <li><a href="#empreendimentos">Empreendimentos</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#processo">Processo</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </div>
-    <div class="footer__col">
-      <h4>Contato</h4>
-      <p>
-        <strong>Projeto:</strong> contato@cavallariengenharia.com.br<br>
-        <strong>Compras:</strong> josi@cavallariengenharia.com.br<br>
-        (12) 3322-4780 · (12) 99705-0375 WhatsApp
+<!-- ===== 08 — DESFECHO / CONTATO ===== -->
+<section class="close" id="contato" data-chapter="6">
+  <div class="close__ghost">740</div>
+  <div class="close__grid">
+    <div class="rv">
+      <div class="close__tag">Fale com a Cavallari</div>
+      <h2 class="close__h">O endereço da sua <em>marca</em> começa aqui.</h2>
+      <p class="close__p">
+        O Galpão Caçapava está com <b>entrega prevista para junho de 2027</b>.
+        Fale com a nossa equipe para receber a ficha técnica completa,
+        plantas e condições comerciais.
       </p>
+      <div class="close__actions">
+        <a href="https://api.whatsapp.com/send?phone=5512997050375&text=Ol%C3%A1!%20Tenho%20interesse%20no%20Galp%C3%A3o%20Comercial%20de%20Ca%C3%A7apava."
+           class="btn btn--main"><span>Falar no WhatsApp</span><span>→</span></a>
+        <a href="index.html" class="btn btn--ghost"><span>Ver todos os empreendimentos</span><span>→</span></a>
+      </div>
     </div>
-    <div class="footer__col">
-      <h4>Endereço</h4>
-      <p>
-        Av. Ironman Victor Garrido, 575<br>
-        Urbanova · São José dos Campos — SP<br>
-        12244-392
-      </p>
+    <div class="close__card rv">
+      <h4>Informações</h4>
+      <div class="infrow">
+        <span>Empreendimento</span>
+        <p>Galpão Comercial — Caçapava</p>
+      </div>
+      <div class="infrow">
+        <span>Dimensões</span>
+        <p><b>Terreno 1.000 m²</b> · 740 m² de construção</p>
+      </div>
+      <div class="infrow">
+        <span>Localização</span>
+        <p>CEIC — Centro Empresarial e Industrial de Caçapava — SP</p>
+      </div>
+      <div class="infrow">
+        <span>Diferenciais</span>
+        <p>Arquitetura contemporânea · fácil acesso à Dutra · segurança 24h</p>
+      </div>
+      <div class="infrow">
+        <span>Entrega</span>
+        <p>Prevista para junho de 2027</p>
+      </div>
+      <div class="infrow">
+        <span>WhatsApp</span>
+        <a href="https://api.whatsapp.com/send?phone=5512997050375">+55 (12) 99705-0375</a>
+      </div>
+      <div class="infrow">
+        <span>E-mail</span>
+        <a href="mailto:contato@cavallariengenharia.com.br">contato@cavallariengenharia.com.br</a>
+      </div>
     </div>
   </div>
-  <div class="footer__bottom">
-    <span>© 2026 Cavallari Incorporações. Todos os direitos reservados.</span>
-    <span>CRECI/SP · CNPJ</span>
+</section>
+
+<!-- RODAPÉ -->
+<footer class="foot">
+  <div class="foot__brand">Cavallari <b>Incorporações</b></div>
+  <div class="foot__links">
+    <a href="index.html">Empreendimentos</a>
+    <a href="index.html#sobre">Sobre</a>
+    <a href="institucional.html">Institucional</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <div class="foot__fine">
+    © 2026 Cavallari Incorporações. Todos os direitos reservados.<br>
+    Imagens meramente ilustrativas. Empreendimento sujeito a alterações de projeto.
   </div>
 </footer>
 
+<!-- WHATSAPP -->
+<a href="https://api.whatsapp.com/send?phone=5512997050375&text=Ol%C3%A1!%20Tenho%20interesse%20no%20Galp%C3%A3o%20Comercial%20de%20Ca%C3%A7apava."
+   class="wa" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+  </svg>
+</a>
+
 <script>
-  // nav scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 30);
-  });
+  // reveal no scroll
+  const rvObs = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  },{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
 
-  // fade-up on intersection
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
+  // progresso lateral
+  const chapters = document.querySelectorAll('[data-chapter]');
+  const dots = document.querySelectorAll('.rail__dot');
+  const chObs = new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        const i = +e.target.dataset.chapter;
+        dots.forEach((d,di)=>d.classList.toggle('active', di===i));
+      }
     });
-  }, { threshold: 0.1 });
+  },{threshold:.5});
+  chapters.forEach(c=>chObs.observe(c));
 
-  document.querySelectorAll('.section, .quote, .manifesto, .processo, .cta').forEach(el => {
-    el.classList.add('fade-up');
-    observer.observe(el);
+  dots.forEach(d=>{
+    d.addEventListener('click',()=>{
+      const i = +d.dataset.i;
+      const target = document.querySelector('[data-chapter="'+i+'"]');
+      if(target) target.scrollIntoView({behavior:'smooth'});
+    });
   });
 </script>
 
