@@ -102,36 +102,6 @@
   }
   .story__p:last-of-type{margin-bottom:0}
 
-  /* ===== 02B — FOTO FUNDADOR ===== */
-  .founder{
-    background:var(--beige);padding:12vh 8vw 16vh;
-    display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;
-  }
-  .founder__img{
-    aspect-ratio:4/5;
-    background-color:#F9F7F4;
-    background-size:contain;
-    background-position:center;
-    background-repeat:no-repeat;
-    border:1px solid #E5D9CC;
-    position:relative;
-    overflow:hidden;
-  }
-  .founder__img::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(135deg,rgba(255,255,255,.4) 0%,transparent 60%);
-    pointer-events:none;
-  }
-  .founder__txt{max-width:540px}
-  .founder__txt h3{
-    font-family:var(--display);font-size:clamp(28px,3.6vw,50px);
-    font-weight:300;line-height:1.15;letter-spacing:-.022em;margin-bottom:24px;
-  }
-  .founder__txt h3 em{font-style:italic;color:var(--wood-deep)}
-  .founder__txt p{
-    font-size:15px;line-height:1.85;color:var(--ink-soft);
-  }
-
   /* ===== 03 — EVOLUÇÃO ===== */
   .evo{
     background:var(--beige-deep);padding:16vh 8vw;
@@ -298,7 +268,6 @@
     .open{padding:0 7vw}
     .open__ghost{font-size:34vw}
     .story,.incorp,.time,.close{padding:13vh 7vw}
-    .founder{grid-template-columns:1fr;gap:44px;padding:12vh 7vw}
     .evo{grid-template-columns:1fr;gap:50px;padding:13vh 7vw}
     .incorp__grid{grid-template-columns:1fr}
     .time__item{grid-template-columns:1fr;gap:16px}
@@ -340,23 +309,12 @@
   </p>
 </section>
 
-<!-- ===== 02B — FOTO FUNDADOR ===== -->
-<section class="founder rv">
-  <div class="founder__img" style="background-image:url('imagens/sr-alicio.png')"></div>
-  <div class="founder__txt">
-    <h3>Sr. Alicio Cavallari, <em>fundador.</em></h3>
-    <p>
-      Com visão empreendedora e compromisso com a qualidade, o Sr. Alicio fundou a Cavallari Engenharia há mais de duas décadas, estabelecendo as bases sólidas que sustentam a trajetória da empresa até hoje.
-    </p>
-  </div>
-</section>
-
 <!-- ===== 03 — EVOLUÇÃO ===== -->
 <section class="evo rv">
   <div class="evo__txt">
     <h2>Evoluímos para projetos <em>multidisciplinares.</em></h2>
     <p>
-      Com sua evolução, a Cavallari ampliou sua atuação para o desenvolvimento de projetos multidisciplinares, atendendo diversas prefeituras, órgãos públicos e grandes empresas, como USP, UFMG, UFF, Polícia Militar, MRV, PDCA, Menin, Canção Nova, entre outras. Essa trajetória proporcionou uma base técnica sólida e ampla experiência no planejamento e na viabilização de empreendimentos multifamiliares complexos.
+      Com sua evolução, a Cavallari ampliou sua atuação para o desenvolvimento de projetos multidisciplinares, atendendo diversas prefeituras, órgãos públicos e grandes empresas. Essa trajetória proporcionou uma base técnica sólida e ampla experiência no planejamento e na viabilização de empreendimentos complexos.
     </p>
     <div class="evo__clients">
       <span>USP</span>
@@ -391,7 +349,11 @@
     </div>
     <div class="incorp__card">
       <h4>Meiriane assume a RT</h4>
-      <p>Nesse contexto, a engenheira Meiriane passou a integrar o quadro societário, assumindo a responsabilidade técnica pelas obras e contribuindo diretamente para o crescimento e a consolidação da empresa no segmento de incorporação imobiliária.</p>
+      <p>A engenheira Meiriane passou a integrar o quadro societário, assumindo a responsabilidade técnica pelas obras e contribuindo diretamente para o crescimento da empresa.</p>
+    </div>
+    <div class="incorp__card">
+      <h4>Consolidação no mercado</h4>
+      <p>Esse movimento consolidou a Cavallari no segmento de incorporação, unindo a experiência técnica acumulada ao desenvolvimento de empreendimentos verticais.</p>
     </div>
   </div>
 </section>
@@ -405,21 +367,21 @@
       <div class="time__y">2014</div>
       <div class="time__c">
         <h5>Primeiro empreendimento próprio</h5>
-        <p>O primeiro empreendimento executado em São José dos Campos, em 2014, representou um importante marco, pois testou todas as tecnologias entregues a grandes empresas, adaptadas a conjuntos verticais menores.</p>
+        <p>O primeiro empreendimento executado em São José dos Campos representou um importante marco, testando todas as tecnologias entregues a grandes empresas, adaptadas a conjuntos verticais menores.</p>
       </div>
     </div>
     <div class="time__item">
       <div class="time__y">2022</div>
       <div class="time__c">
         <h5>Expansão bem-sucedida</h5>
-        <p>O caminho natural da Cavallari foi expandir seus empreendimentos, feito com sucesso total em Jacareí e Caraguatatuba.</p>
+        <p>O caminho natural da Cavallari foi expandir seus empreendimentos, feito com sucesso total em Jacareí e Caraguatatuba — consolidando a presença da empresa no Vale do Paraíba e litoral norte.</p>
       </div>
     </div>
     <div class="time__item">
       <div class="time__y">Hoje</div>
       <div class="time__c">
         <h5>Novos lançamentos e o primeiro loteamento</h5>
-        <p>Hoje, ela prepara seus lançamentos em cidades-chave, além do próximo passo: o lançamento do seu primeiro loteamento.</p>
+        <p>A Cavallari prepara seus lançamentos em cidades-chave, além do próximo passo: o lançamento do seu primeiro loteamento — um novo capítulo que amplia ainda mais o escopo de atuação da empresa.</p>
       </div>
     </div>
   </div>
@@ -432,7 +394,7 @@
       <div class="close__tag">Fale com a Cavallari</div>
       <h2 class="close__h">Construa <em>conosco</em> o próximo capítulo.</h2>
       <p class="close__p">
-        Com uma trajetória baseada em experiência, responsabilidade e visão estratégica, a Cavallari segue ampliando sua presença no mercado, desenvolvendo empreendimentos que aliam qualidade construtiva, eficiência e confiança, reafirmando seu compromisso com a excelência em cada projeto realizado.
+        Com uma trajetória baseada em experiência, responsabilidade e visão estratégica, a Cavallari segue ampliando sua presença no mercado, desenvolvendo empreendimentos que aliam qualidade construtiva, eficiência e confiança.
       </p>
       <div class="close__actions">
         <a href="https://api.whatsapp.com/send?phone=5512997050375&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Cavallari%20Incorpora%C3%A7%C3%B5es."
